@@ -1,10 +1,10 @@
 ---
 # MyCNPJ
 
-## Descrição
+### Descrição
   Aplicação ASP .NET MVC desenvolvida para busca de informações de CNPJ e exportação via PDF utilizando o IronPdf.
 
-### Tecnologias
+#### Tecnologias
 
 - [C#]
       - [ASP .NET]

@@ -1,0 +1,154 @@
+﻿@model CnpjDataViewModel
+@{
+    ViewData["Title"] = "Dados Pessoa Jurífica";
+}
+@using (Html.BeginForm("GeneratePdf", "CnpjData", FormMethod.Post, new { Cnpj = Model.Cnpj }))
+{
+    @Html.HiddenFor(a => a.Cnpj)
+    <div class="text-center">
+        <h3>Cadastro de Pessoa Jurídica</h3>
+        <br />
+        <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Última atualização</th>
+                    <th>Data abertura</th>
+                    <th>Número da inscrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.UltimaAtualizacao</td>
+                    <td>@Model.Abertura</td>
+                    <td>@Model.Cnpj - @Model.Tipo</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nome empresarial</th>
+                    <th>Nome Fantasia</th>
+                    <th>Código e descrição da natureza jurídica </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                    <td>@Model.Nome</td>
+                    <td>@Model.Fantasia</td>
+                    <td>@Model.NaturezaJuridica</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Logradouro</th>
+                    <th>Número</th>
+                    <th>Complemento</th>
+                    <th>CEP</th>
+                    <th>Bairro</th>
+                    <th>Municipio</th>
+                    <th>UF</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Logradouro</td>
+                    <td>@Model.Numero</td>
+                    <td>@Model.Complemento</td>
+                    <td>@Model.Cep</td>
+                    <td>@Model.Bairro</td>
+                    <td>@Model.Municipio</td>
+                    <td>@Model.Uf</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Endereço Eletrônico</th>
+                    <th>Telefone</th>
+                    <th>Capital Social</th>
+                    <th>Data da Situação Cadastral</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Email</td>
+                    <td>@Model.Telefone</td>
+                    <td>@Model.Situacao</td>
+                    <td>@Model.DataSituacao</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            @if (Model.AtividadePrincipal?.Any() ?? false)
+            {
+                <div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="2"> Atividade Econômica Primária</th>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Descrição</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var atividadesprincipal in Model.AtividadePrincipal)
+                            {
+                                <tr>
+                                    <td>@atividadesprincipal.Code</td>
+                                    <td>@atividadesprincipal.Text</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            @if (Model.AtividadesSecundarias?.Any() ?? false)
+            {
+                <div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="2"> Atividade Econômica Secundária</th>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Descrição</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var atividadesSecundarias in Model.AtividadesSecundarias)
+                            {
+                                <tr>
+                                    <td>@atividadesSecundarias.Code</td>
+                                    <td>@atividadesSecundarias.Text</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+        <div class="align-content-center">
+            @Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-secondary" })
+            @if (!string.IsNullOrEmpty(Model.Cnpj))
+            {
+                <button class="btn btn-primary" , type="submit"> Exportar em PDF</button>
+            }
+        </div>
+        <br />
+    </div>
+}

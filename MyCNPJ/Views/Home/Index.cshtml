@@ -1,0 +1,26 @@
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+    <div class="searchcnpj">
+        <h3>Consulta Pessoa Jurídica - CNPJ</h3>
+        <br />
+        <form asp-action="GetCnpj" asp-controller="Home">
+            <div>
+                <input asp-for="Cnpj" class="form-control input-search__input fw-bold search" placeholder="Dígite o CNPJ" id="cnpj" maxlength="18" />
+            </div>
+            <br />
+            <div>
+                <input type="submit" value="PESQUISAR" class="btn btn-primary" />
+            </div>
+            <br />
+            @if (!string.IsNullOrEmpty(@Model.MessageError))
+            {
+                <div class="text-center">
+                    <label style="color:red; font-size: large ">@Model.MessageError</label>
+                </div>
+            }
+        </form>
+    </div>
+</div>

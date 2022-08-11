@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace MyCNPJ.Services
 {
-
     sealed class CnpjDataService : ICnpjDataService
     {
         private readonly IRestCnpj _restCnpj;

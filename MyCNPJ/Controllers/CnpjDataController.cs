@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyCNPJ.Models;
 using MyCNPJ.Services;
+using MyCNPJ.Utils;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 
@@ -32,7 +33,7 @@ namespace MyCNPJ.Controllers
         }
 
         [HttpPost]
-        public async Task<FileResult> GeneratePdf(string cnpj)
+        public async Task<IActionResult> GeneratePdf(string cnpj)
         {
             var cnpjClientDetails = await _cnpjDataService.GetCnpjAsync(cnpj);
 
@@ -42,12 +43,13 @@ namespace MyCNPJ.Controllers
                 var pdf = await _createPdf.CreatePdfAsync(html);
 
                 Response.Headers.Add("Content-Length", pdf.ContentLength);
-                Response.Headers.Add("Content-Disposition", "inline; filename=Document_" + cnpjClientDetails.Cnpj + ".pdf");
+                Response.Headers.Add("Content-Disposition", "inline; filename=Document_" + cnpjClientDetails.Cnpj.ParseCnpj() + ".pdf");
 
                 return File(pdf.BinaryData, "application/pdf");
             }
 
-            return null;
+            var indexModel = new IndexViewModel() { MessageError = $"Falha ao gerar PDF! Motivo: {cnpjClientDetails.Message}",Cnpj = cnpj};
+            return RedirectToAction("Index", "Home", indexModel);
         }
     }
 }

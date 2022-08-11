@@ -20,7 +20,7 @@ namespace MyCNPJ.Services
             <h1>Dados da Empresa</h1>
             <br/>
             <div style='text-align: left;'>
-                <label style='font-size: medium; font-weight: bold;'>Última atualização:</label>
+                <label style='font-size: medium; font-weight: bold;'>Última Atualização:</label>
                 <label style='font-size: small;'>" + cnpjDataViewModel.UltimaAtualizacao.ToString() + @"</label>
                 <hr/><label style='font-size: medium;font-weight: bold;'>Data Abertura:</label>
                 <label style='font-size: small;'> " + cnpjDataViewModel.Abertura.ValidField() + @"</label>
@@ -58,6 +58,10 @@ namespace MyCNPJ.Services
                 <label style='font-size: small;'>" + cnpjDataViewModel.Bairro.ValidField() + @"</label>
                 <hr/>
 
+                <label style='font-size: medium;font-weight: bold;'>Endereço Eletrônico:</label>
+                <label style='font-size: small;'>" + cnpjDataViewModel.Email.ValidField() + @"</label>
+                <hr/>
+
                 <label style='font-size: medium;font-weight: bold;'>Município:</label>
                 <label style='font-size: small;'>" + cnpjDataViewModel.Municipio.ValidField() + @"</label>
                 <hr/>
@@ -90,17 +94,14 @@ namespace MyCNPJ.Services
                 <label style='font-size: small;'>" + cnpjDataViewModel.Porte.ValidField() + @"</label>
                 <hr/>
                 
-                <hr/>
                 <label style='font-size: medium;font-weight: bold;'>Motivo da Situação:</label>
                 <label style='font-size: small;'>" + cnpjDataViewModel.MotivoSituacao.ValidField() + @"</label>
                 <hr/>
 
-                <hr/>
                 <label style='font-size: medium;font-weight: bold;'>Situacão Especial:</label>
                 <label style='font-size: small;'>" + cnpjDataViewModel.SituacaoEspecial.ValidField() + @"</label>
                 <hr/>
 
-                <hr/>
                 <label style='font-size: medium;font-weight: bold;'>Data da Situacão Especial:</label>
                 <label style='font-size: small;'>" + cnpjDataViewModel.DataSituacaoEspecial.ValidField() + @"</label>
                 <hr/>";
@@ -108,7 +109,7 @@ namespace MyCNPJ.Services
             if (cnpjDataViewModel.AtividadePrincipal.Any())
             {
                 html += @"<br/><br/>
-                <label style='font-size: large;font-weight: bold;'>Atividade Econômica Primária</label>
+                <label style='font-size: large;font-weight: bold;'>Atividade Econômicas Primárias</label>
                 <br/><br/>";
                 foreach (var atividadePrincipal in cnpjDataViewModel.AtividadePrincipal)
                 {
@@ -126,7 +127,7 @@ namespace MyCNPJ.Services
             {
                 html += @"
                 <br/><br/>
-                <label style='font-size: large;font-weight: bold;'>Atividade Econômica Econômicas Secundárias</label>
+                <label style='font-size: large;font-weight: bold;'>Atividade Econômicas Secundárias</label>
                 <br/><br/>";
                 foreach (var atividadesSecundarias in cnpjDataViewModel.AtividadesSecundarias)
                 {

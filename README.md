@@ -5,12 +5,11 @@
   Aplicação ASP .NET MVC desenvolvida para busca de informações de CNPJ e exportação via PDF utilizando o IronPdf.
 
 #
-#### Tecnologias
+### Tecnologias
 
-- [C#]
-      - [ASP .NET]
-      - [MVC]
-      - [RestSharp]
-      - [IronPDF]
-
+<li>C#</li>
+<li>ASP .NET</li>
+<li>MVC</li>
+<li>RestSharp</li>
+<li>IronPDF</li>
 ---

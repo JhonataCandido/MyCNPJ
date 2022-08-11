@@ -11,4 +11,4 @@
 <li>ASP .NET</li>
 <li>MVC</li>
 <li>RestSharp</li>
-<li>IronPDF</li>
+<li>Nuget - IronPDF</li>

@@ -1,0 +1,204 @@
+﻿@model CompanyDetailsViewModel
+@{
+    ViewData["Title"] = "Dados Pessoa Jurífica";
+}
+@Html.HiddenFor(a => a.CnpjData.Cnpj)
+<div class="text-center">
+    <h3>Cadastro de Pessoa Jurídica</h3>
+    <br />
+    <hr />
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Última Atualização</th>
+                <th>Data Abertura</th>
+                <th>Número da Inscrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.CnpjData.UltimaAtualizacao</td>
+                <td>@Model.CnpjData.Abertura</td>
+                <td>@Model.CnpjData.Cnpj - @Model.CnpjData.Tipo</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nome Empresarial</th>
+                <th>Nome Fantasia</th>
+                <th>Código e Descrição da Natureza Jurídica </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Model.CnpjData.Nome</td>
+                <td>@Model.CnpjData.Fantasia</td>
+                <td>@Model.CnpjData.NaturezaJuridica</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Logradouro</th>
+                <th>Número</th>
+                <th>Complemento</th>
+                <th>CEP</th>
+                <th>Bairro</th>
+                <th>Município</th>
+                <th>UF</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.CnpjData.Logradouro</td>
+                <td>@Model.CnpjData.Numero</td>
+                <td>@Model.CnpjData.Complemento</td>
+                <td>@Model.CnpjData.Cep</td>
+                <td>@Model.CnpjData.Bairro</td>
+                <td>@Model.CnpjData.Municipio</td>
+                <td>@Model.CnpjData.Uf</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Endereço Eletrônico</th>
+                <th>Telefone</th>
+                <th>Capital Social</th>
+                <th>Data da Situação Cadastral</th>
+                <th>EFR</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.CnpjData.Email</td>
+                <td>@Model.CnpjData.Telefone</td>
+                <td>@Model.CnpjData.Situacao</td>
+                <td>@Model.CnpjData.Efr</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Situação Especial</th>
+                <th>Motivo Situação</th>
+                <th>Data da Situação Especial</th>
+                <th>Porte</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.CnpjData.SituacaoEspecial</td>
+                <td>@Model.CnpjData.MotivoSituacao</td>
+                <td>@Model.CnpjData.DataSituacaoEspecial</td>
+                <td>@Model.CnpjData.Porte</td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        @if (Model.CnpjData.AtividadePrincipal?.Any() ?? false)
+        {
+            <div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th colspan="2"> Atividade Econômicas Primárias</th>
+                        </tr>
+                    </thead>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        @foreach (var atividadesprincipal in Model.CnpjData.AtividadePrincipal)
+                        {
+                            <tr>
+                                <td>@atividadesprincipal.Code</td>
+                                <td>@atividadesprincipal.Text</td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        }
+        @if (Model.CnpjData.AtividadesSecundarias?.Any() ?? false)
+        {
+            <div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th colspan="2"> Atividade Econômicas Secundárias</th>
+                        </tr>
+                    </thead>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var atividadesSecundarias in Model.CnpjData.AtividadesSecundarias)
+                        {
+                            <tr>
+                                <td>@atividadesSecundarias.Code</td>
+                                <td>@atividadesSecundarias.Text</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        @if (Model.CnpjData.Qsa?.Any() ?? false)
+        {
+            <div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th colspan="2"> Quadro do Societário</th>
+                        </tr>
+                    </thead>
+                    <thead>
+                        <tr>
+                            <th>Nome do Sócio</th>
+                            <th>Nome Representante Legal</th>
+                            <th>País de Origem</th>
+                            <th>Qualificação do Sócio</th>
+                            <th>Qualificação do Representante Legal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var qsas in Model.CnpjData.Qsa)
+                        {
+                            <tr>
+                                <td>@qsas.Nome</td>
+                                <td>@qsas.NomeRepLegal</td>
+                                <td>@qsas.PaisOrigem</td>
+                                <td>@qsas.Qual</td>
+                                <td>@qsas.QualRepLegal</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+    <div class="align-content-center" style="margin-top: 30px; margin-block: 50px">
+        @Html.ActionLink("Voltar", "Index", "Company", new { page = 1 }, new { @class = "btn btn-secondary" })
+    </div>
+    <br />
+</div>

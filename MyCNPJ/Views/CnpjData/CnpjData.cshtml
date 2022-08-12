@@ -4,8 +4,9 @@
 }
 @using (Html.BeginForm("GeneratePdf", "CnpjData", FormMethod.Post, new { Cnpj = Model.Cnpj }))
 {
-    @Html.HiddenFor(a => a.Cnpj)
     <div class="text-center">
+        @Html.HiddenFor(a => a.Cnpj)
+        <input type="hidden" value="@Model.Cnpj" id="cnpjhidden" />
         <h3>Cadastro de Pessoa Jurídica</h3>
         <br />
         <hr />
@@ -35,14 +36,12 @@
             </thead>
             <tbody>
                 <tr>
-
                     <td>@Model.Nome</td>
                     <td>@Model.Fantasia</td>
                     <td>@Model.NaturezaJuridica</td>
                 </tr>
             </tbody>
         </table>
-
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -74,7 +73,6 @@
                     <th>Telefone</th>
                     <th>Capital Social</th>
                     <th>Data da Situação Cadastral</th>
-
                 </tr>
             </thead>
             <tbody>
@@ -142,11 +140,12 @@
                 </div>
             }
         </div>
-        <div class="align-content-center">
+        <div class="align-content-center" style="margin-top: 40px; margin-block: 40px">
             @Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-secondary" })
             @if (!string.IsNullOrEmpty(Model.Cnpj))
             {
                 <button class="btn btn-primary" , type="submit"> Exportar em PDF</button>
+                @Html.ActionLink("Cadastrar", "Add", "Company", new { cnpj = Model.Cnpj }, htmlAttributes: new { @class = "btn btn-success" })
             }
         </div>
         <br />

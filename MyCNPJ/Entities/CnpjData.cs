@@ -6,6 +6,8 @@ namespace MyCNPJ.Entities
 {
     public class CnpjData
     {
+        public Guid Id { get; set; }
+
         [JsonProperty("status")]
         public string Status { get; set; }
 
@@ -31,10 +33,10 @@ namespace MyCNPJ.Entities
         public string Abertura { get; set; }
 
         [JsonProperty("atividade_principal")]
-        public IEnumerable<AtividadePrincipal> AtividadePrincipal { get; set; }
+        public IEnumerable<AtividadesPrincipais> AtividadePrincipal { get; set; }
 
         [JsonProperty("atividades_secundarias")]
-        public IEnumerable<AtividadesSecundaria> AtividadesSecundarias { get; set; }
+        public IEnumerable<AtividadesSecundarias> AtividadesSecundarias { get; set; }
 
         [JsonProperty("natureza_juridica")]
         public string NaturezaJuridica { get; set; }
@@ -92,49 +94,5 @@ namespace MyCNPJ.Entities
 
         [JsonProperty("billing")]
         public Billing Billing { get; set; }
-    }
-    public class AtividadePrincipal
-    {
-        [JsonProperty("code")]
-        public string Code { get; set; }
-
-        [JsonProperty("text")]
-        public string Text { get; set; }
-    }
-
-    public class AtividadesSecundaria
-    {
-        [JsonProperty("code")]
-        public string Code { get; set; }
-
-        [JsonProperty("text")]
-        public string Text { get; set; }
-    }
-
-    public class Billing
-    {
-        [JsonProperty("free")]
-        public bool Free { get; set; }
-
-        [JsonProperty("database")]
-        public bool Database { get; set; }
-    }
-
-    public class Qsa
-    {
-        [JsonProperty("nome")]
-        public string Nome { get; set; }
-
-        [JsonProperty("qual")]
-        public string Qual { get; set; }
-
-        [JsonProperty("pais_origem")]
-        public string PaisOrigem { get; set; }
-
-        [JsonProperty("nome_rep_legal")]
-        public string NomeRepLegal { get; set; }
-
-        [JsonProperty("qual_rep_legal")]
-        public string QualRepLegal { get; set; }
     }
 }

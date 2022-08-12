@@ -48,7 +48,7 @@ namespace MyCNPJ.Controllers
                 return File(pdf.BinaryData, "application/pdf");
             }
 
-            var indexModel = new IndexViewModel() { MessageError = $"Falha ao gerar PDF! Motivo: {cnpjClientDetails.Message}",Cnpj = cnpj};
+            var indexModel = new IndexViewModel($"Falha ao gerar PDF! Motivo: {cnpjClientDetails.Message}", cnpj);
             return RedirectToAction("Index", "Home", indexModel);
         }
     }

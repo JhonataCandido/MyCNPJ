@@ -1,4 +1,4 @@
-﻿{
+{
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
@@ -12,17 +12,18 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
+        "ConnectionString": "\"Data Source=DESKTOP-54LUDV7;Initial Catalog=MyCnpj;Integrated Security=False;User ID=sa;Password=123;MultipleActiveResultSets=false;connect timeout=1800000\"",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
     "MyCNPJ": {
       "commandName": "Project",
-      "dotnetRunMessages": "true",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "dotnetRunMessages": "true",
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
     }
   }
 }

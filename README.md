@@ -12,3 +12,4 @@
 <li>MVC</li>
 <li>RestSharp</li>
 <li>Nuget - IronPDF</li>
+<li>SQL Server</li>

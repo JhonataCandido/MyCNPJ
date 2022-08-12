@@ -27,7 +27,6 @@ namespace MyCNPJ.Repositories
                  .ToPagedList(page, 8));
         }
 
-
         /// <summary>
         /// Busca somente uma empresa no banco
         /// </summary>

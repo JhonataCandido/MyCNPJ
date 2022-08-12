@@ -3,7 +3,12 @@
 
 ### Descrição
   Aplicação ASP .NET MVC desenvolvida para busca de informações de CNPJ e exportação via PDF utilizando o IronPdf.
-
+  
+  Requisitos: 
+  1- SQL Server instalado e configurado em seu ambiente.
+  2- Caso seja do seu interesse realize a atualização da ConnectionString no appsettings.Developments
+  
+                FIM
 #
 ### Tecnologias utilizadas
 

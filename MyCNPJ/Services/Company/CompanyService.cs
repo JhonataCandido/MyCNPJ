@@ -17,9 +17,9 @@ namespace MyCNPJ.Services.Company
         public async Task<IPagedList<CnpjData>> List(int page) => await _cnpjDataRepository.List(page);
 
         public async Task<CompanyDetailsViewModel> GetCnpjDetails(string cnpj) => new CompanyDetailsViewModel(await _cnpjDataRepository.GetCnpjDataDetailsAsync(cnpj));
-        
+
         public async Task Add(CnpjData cnpjData) => await _cnpjDataRepository.Add(cnpjData);
-        
+
         public async Task<bool> Exist(string cnpj) => await _cnpjDataRepository.Exist(cnpj);
     }
 }

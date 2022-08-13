@@ -7,7 +7,7 @@ namespace MyCNPJ.DataContext
     {
         private string _connectionString;
 
-        public DataContext(){}
+        public DataContext() { }
         public DataContext(string connectionString)
         {
             _connectionString = connectionString;

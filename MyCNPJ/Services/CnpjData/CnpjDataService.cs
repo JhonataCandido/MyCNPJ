@@ -36,7 +36,7 @@ namespace MyCNPJ.Services
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.TooManyRequests)
                         cnpjDataModel.Message = "Várias solicitações seguidas, favor aguardar alguns segundos!";
-                    
+
                     else
                         cnpjDataModel.Message = $"Falha ao executar a request: {response.ErrorMessage}";
                 }

@@ -26,7 +26,7 @@ namespace MyCNPJ.Controllers
         [HttpPost]
         public async Task<IActionResult> GetCnpj(string cnpj)
         {
-            var dataresult = await _cnpjDataService.GetCnpjAsync(cnpj); 
+            var dataresult = await _cnpjDataService.GetCnpjAsync(cnpj);
             if (dataresult.Status != "OK")
             {
                 var model = new IndexViewModel() { MessageError = dataresult.Message, Cnpj = cnpj };

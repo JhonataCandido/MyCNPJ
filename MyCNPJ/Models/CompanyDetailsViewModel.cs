@@ -8,6 +8,6 @@ namespace MyCNPJ.Models
         {
             CnpjData = cnpjData;
         }
-        public CnpjData CnpjData  { get;set;}
+        public CnpjData CnpjData { get; set; }
     }
 }

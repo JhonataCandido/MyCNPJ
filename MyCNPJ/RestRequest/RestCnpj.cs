@@ -14,7 +14,7 @@ namespace MyCNPJ.RestRequest
         /// <param name="method"></param>
         /// <param name="body"></param>
         /// <returns></returns>
-        public async Task<RestResponse> ExecuteRequestAsync(string baseUrl, [Optional]string resource, Method method, [Optional]object body)
+        public async Task<RestResponse> ExecuteRequestAsync(string baseUrl, [Optional] string resource, Method method, [Optional] object body)
         {
             var client = new RestClient(baseUrl);
             var request = new RestSharp.RestRequest(resource ?? "", method);

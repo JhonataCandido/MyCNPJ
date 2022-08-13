@@ -1,5 +1,3 @@
-using System;
-
 namespace MyCNPJ.Models
 {
     public class ErrorViewModel

@@ -5,65 +5,65 @@
 }
 <div class="text-center">
     <div class="companys">
-        <h5>Consulta de Empresas Cadastradas</h5>
+        <h5> Consulta de Empresas Cadastradas </h5>
         <br />
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>CNPJ</th>
-                    <th>Nome Fantasia</th>
-                    <th>Nome</th>
-                    <th>Última Atualização</th>
-                    <th>Telefone</th>
-                    <th>E-mail</th>
-                    <th>Situação</th>
-                    <th>Abertura</th>
-                    <th>Estado</th>
-                    <th>Status</th>
-                    <th>Ações</th>
+        <div class="text-left">
+            <table class="table table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th> CNPJ </th>
+                        <th> Tipo </th>
+                        <th> Nome </th>
+                        <th> Nome Fantasia </th>
+                        <th> Telefone </th>
+                        <th> E-mail </th>
+                        <th> Situação </th>
+                        <th> Abertura </th>
+                        <th> Estado </th>
+                        <th> Status </th>
+                        <th> Última Atualização </th>
+                        <th> Ações </th>
 
-                </tr>
-            </thead>
-            <tbody>
-                @if (Model.Any())
-                {
-                    @foreach (var listCnpjData in Model)
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Any())
                     {
-                        <tr>
-                            <td>@listCnpjData.Cnpj</td>
-                            <td>@listCnpjData.Fantasia</td>
-                            <td>@listCnpjData.Nome</td>
-                            <td>@listCnpjData.UltimaAtualizacao</td>
-                            <td>@listCnpjData.Telefone</td>
-                            <td>@listCnpjData.Email</td>
-                            <td>@listCnpjData.Situacao</td>
-                            <td>@listCnpjData.Abertura</td>
-                            <td>@listCnpjData.Uf</td>
-                            <td>@listCnpjData.Status</td>
-                            <td> @Html.ActionLink("Detalhes", "CompanyDetails", "Company", new { cnpj = @listCnpjData.Cnpj }, new { @class = "btn btn-primary" })</td>
+                        @foreach (var listCnpjData in Model)
+                        {
+                            <tr>
+                                <td class="table-active"> @listCnpjData.Cnpj </td>
+                                <td class="table-active"> @listCnpjData.Tipo </td>
+                                <td class="table-active"> @listCnpjData.Nome </td>
+                                <td class="table-active"> @listCnpjData.Fantasia </td>
+                                <td class="table-active"> @listCnpjData.Telefone </td>
+                                <td class="table-active"> @listCnpjData.Email </td>
+                                <td class="table-active"> @listCnpjData.Situacao </td>
+                                <td class="table-active"> @listCnpjData.Abertura </td>
+                                <td class="table-active"> @listCnpjData.Uf </td>
+                                <td class="table-active"> @listCnpjData.Status </td>
+                                <td class="table-active"> @listCnpjData.UltimaAtualizacao </td>
+                                <td class="table-active"> @Html.ActionLink("Detalhes", "CompanyDetails", "Company", new { cnpj = @listCnpjData.Cnpj }, new { @class = "btn btn-primary" }) </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr class="bg-warning">
+                            <td colspan="12">
+                                Nenhum registro encontrado
+                            </td>
                         </tr>
                     }
-                }
-                else
-                {
-                    <tr class="bg-warning">
-                        <td colspan="7">
-                            Nenhum registro encontrado
-                        </td>
-                    </tr>
-                }
-
-            </tbody>
-        </table>
-        <div class="align-content-center" style="margin-top: 30px">
-            @Html.ActionLink("Voltar", "Index", "Home",null, new { @class = "btn btn-secondary" })
-        </div>
-        <div class="align-content-center" style="margin-top: 30px">
-            @Html.PagedListPager(Model, page => Url.Action("Index", new { search = ViewBag.Busca, page }), new PagedListRenderOptions { FunctionToTransformEachPageLink = (liTag, aTag) => { aTag.Attributes.Add("class", "page-link".ToString()); return aTag; }, LiElementClasses = new[] { "page-item" }, UlElementClasses = new[] { "pagination  justify-content-center" } })
-        </div>
-        <br />
-        <div class="align-content-center">
-
+                </tbody>
+            </table>
+            <div class="align-content-center" style="margin-top: 30px">
+                @Html.ActionLink("Voltar", "Index", "Home",null, new { @class = "btn btn-secondary" })
+            </div>
+            <div class="align-content-center" style="margin-top: 30px">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { search = ViewBag.Busca, page }), new PagedListRenderOptions { FunctionToTransformEachPageLink = (liTag, aTag) => { aTag.Attributes.Add("class", "page-link".ToString()); return aTag; }, LiElementClasses = new[] { "page-item" }, UlElementClasses = new[] { "pagination  justify-content-center" } })
+            </div>
+            <br />
         </div>
     </div>
 </div>

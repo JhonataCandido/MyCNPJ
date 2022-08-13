@@ -4,7 +4,7 @@
 }
 <div class="text-center">
     <div class="searchcnpj">
-        <h3>Consulta Pessoa Jurídica - CNPJ</h3>
+        <h3> Consulta Pessoa Jurídica - CNPJ </h3>
         <br />
         <form asp-action="GetCnpj" asp-controller="Home">
             <div>
@@ -12,13 +12,13 @@
             </div>
             <br />
             <div>
-                <input type="submit" value="PESQUISAR" class="btn btn-primary" />
+                <input type="submit" value="PESQUISAR" class="btn btn-primary"  />
             </div>
             <br />
             @if (!string.IsNullOrEmpty(@Model.MessageError))
             {
                 <div class="text-center">
-                    <label style="color:red; font-size: large ">@Model.MessageError</label>
+                    <label style="color:red; font-size: large"> @Html.DisplayFor(a => a.MessageError)</label>
                 </div>
             }
         </form>

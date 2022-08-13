@@ -23,7 +23,7 @@ namespace MyCNPJ.Repositories
         public async Task<IPagedList<CnpjData>> List(int page)
         {
             return await Task.FromResult(_dataContext.CnpjData
-                 .OrderBy(a => a.Fantasia)
+                 .OrderBy(a => a.Nome)
                  .ToPagedList(page, 8));
         }
 

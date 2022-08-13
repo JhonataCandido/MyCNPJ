@@ -2,105 +2,105 @@
 @{
     ViewData["Title"] = "Dados Pessoa Jurífica";
 }
+
 @Html.HiddenFor(a => a.CnpjData.Cnpj)
-<div class="text-center">
-    <h3>Cadastro de Pessoa Jurídica</h3>
+<div class="text-left">
+    <h3> Cadastro de Pessoa Jurídica </h3>
     <br />
     <hr />
     <table class="table table-bordered">
-        <thead>
+        <thead class="thead-dark">
             <tr>
-                <th>Última Atualização</th>
-                <th>Data Abertura</th>
-                <th>Número da Inscrição</th>
+                <th> Última Atualização </th>
+                <th> Data Abertura </th>
+                <th> Número da Inscrição </th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>@Model.CnpjData.UltimaAtualizacao</td>
-                <td>@Model.CnpjData.Abertura</td>
-                <td>@Model.CnpjData.Cnpj - @Model.CnpjData.Tipo</td>
+                <td class="table-active"> @Html.DisplayFor( a => a.CnpjData.UltimaAtualizacao) </td>
+                <td class="table-active"> @Html.DisplayFor( a => a.CnpjData.Abertura) </td>
+                <td class="table-active"> @Html.DisplayFor( a => a.CnpjData.Cnpj) - @Html.DisplayFor( a => a.CnpjData.Tipo) </td>
             </tr>
         </tbody>
     </table>
     <table class="table table-bordered">
-        <thead>
+        <thead class="thead-dark">
             <tr>
-                <th>Nome Empresarial</th>
-                <th>Nome Fantasia</th>
-                <th>Código e Descrição da Natureza Jurídica </th>
+                <th> Nome Empresarial </th>
+                <th> Nome Fantasia </th>
+                <th> Código e Descrição da Natureza Jurídica </th>
             </tr>
         </thead>
         <tbody>
             <tr>
 
-                <td>@Model.CnpjData.Nome</td>
-                <td>@Model.CnpjData.Fantasia</td>
-                <td>@Model.CnpjData.NaturezaJuridica</td>
+                <td class="table-active"> @Html.DisplayFor( a => a.CnpjData.Nome) </td>
+                <td class="table-active"> @Html.DisplayFor( a => a.CnpjData.Fantasia) </td>
+                <td class="table-active"> @Html.DisplayFor( a => a.CnpjData.NaturezaJuridica) </td>
             </tr>
         </tbody>
     </table>
-
     <table class="table table-bordered">
-        <thead>
+        <thead class="thead-dark">
             <tr>
-                <th>Logradouro</th>
-                <th>Número</th>
-                <th>Complemento</th>
-                <th>CEP</th>
-                <th>Bairro</th>
-                <th>Município</th>
-                <th>UF</th>
+                <th> Logradouro </th>
+                <th> Número </th>
+                <th> Complemento </th>
+                <th> CEP </th>
+                <th> Bairro </th>
+                <th> Município </th>
+                <th> UF </th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>@Model.CnpjData.Logradouro</td>
-                <td>@Model.CnpjData.Numero</td>
-                <td>@Model.CnpjData.Complemento</td>
-                <td>@Model.CnpjData.Cep</td>
-                <td>@Model.CnpjData.Bairro</td>
-                <td>@Model.CnpjData.Municipio</td>
-                <td>@Model.CnpjData.Uf</td>
+                <td class="table-active"> @Html.DisplayFor( a => a.CnpjData.Logradouro) </td>
+                <td class="table-active"> @Html.DisplayFor( a => a.CnpjData.Numero) </td>
+                <td class="table-active"> @Html.DisplayFor( a => a.CnpjData.Complemento) </td>
+                <td class="table-active"> @Html.DisplayFor( a => a.CnpjData.Cep) </td>
+                <td class="table-active"> @Html.DisplayFor( a => a.CnpjData.Bairro) </td>
+                <td class="table-active"> @Html.DisplayFor( a => a.CnpjData.Municipio) </td>
+                <td class="table-active"> @Html.DisplayFor( a => a.CnpjData.Uf) </td>
             </tr>
         </tbody>
     </table>
     <table class="table table-bordered">
-        <thead>
+        <thead class="thead-dark">
             <tr>
-                <th>Endereço Eletrônico</th>
-                <th>Telefone</th>
-                <th>Capital Social</th>
-                <th>Data da Situação Cadastral</th>
-                <th>EFR</th>
-
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>@Model.CnpjData.Email</td>
-                <td>@Model.CnpjData.Telefone</td>
-                <td>@Model.CnpjData.Situacao</td>
-                <td>@Model.CnpjData.Efr</td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Situação Especial</th>
-                <th>Motivo Situação</th>
-                <th>Data da Situação Especial</th>
-                <th>Porte</th>
+                <th> Endereço Eletrônico </th>
+                <th> Telefone </th>
+                <th> Capital Social </th>
+                <th> Data da Situação Cadastral </th>
+                <th> EFR </th>
 
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>@Model.CnpjData.SituacaoEspecial</td>
-                <td>@Model.CnpjData.MotivoSituacao</td>
-                <td>@Model.CnpjData.DataSituacaoEspecial</td>
-                <td>@Model.CnpjData.Porte</td>
+                <td class="table-active"> @Html.DisplayFor( a => a.CnpjData.Email) </td>
+                <td class="table-active"> @Html.DisplayFor( a => a.CnpjData.Telefone) </td>
+                <td class="table-active"> @Html.DisplayFor( a => a.CnpjData.Situacao) </td>
+                <td class="table-active"> @Html.DisplayFor( a => a.CnpjData.Efr) </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th> Situação Especial </th>
+                <th> Motivo Situação </th>
+                <th> Data da Situação Especial </th>
+                <th> Porte </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="table-active"> @Html.DisplayFor( a => a.CnpjData.SituacaoEspecial) </td>
+                <td class="table-active"> @Html.DisplayFor( a => a.CnpjData.MotivoSituacao) </td>
+                <td class="table-active"> @Html.DisplayFor( a => a.CnpjData.DataSituacaoEspecial) </td>
+                <td class="table-active"> @Html.DisplayFor( a => a.CnpjData.Porte) </td>
             </tr>
         </tbody>
     </table>
@@ -109,29 +109,25 @@
         {
             <div>
                 <table class="table table-bordered">
-                    <thead>
+                    <thead class="thead-dark">
                         <tr>
-                            <th colspan="2"> Atividade Econômicas Primárias</th>
+                            <th colspan="2"> Atividade Econômicas Primárias </th>
                         </tr>
                     </thead>
                     <thead>
                         <tr>
-                            <th>Código</th>
-                            <th>Descrição</th>
+                            <th class="table-active"> Código </th>
+                            <th class="table-active"> Descrição </th>
                         </tr>
                     </thead>
                     <tbody>
-
-
                         @foreach (var atividadesprincipal in Model.CnpjData.AtividadePrincipal)
                         {
                             <tr>
-                                <td>@atividadesprincipal.Code</td>
-                                <td>@atividadesprincipal.Text</td>
+                                <td class="table-active"> @atividadesprincipal.Code </td>
+                                <td class="table-active"> @atividadesprincipal.Text </td>
                             </tr>
                         }
-
-
                     </tbody>
                 </table>
             </div>
@@ -140,23 +136,23 @@
         {
             <div>
                 <table class="table table-bordered">
-                    <thead>
+                    <thead class="thead-dark">
                         <tr>
-                            <th colspan="2"> Atividade Econômicas Secundárias</th>
+                            <th colspan="2"> Atividade Econômicas Secundárias </th>
                         </tr>
                     </thead>
                     <thead>
                         <tr>
-                            <th>Código</th>
-                            <th>Descrição</th>
+                            <th class="table-active"> Código </th>
+                            <th class="table-active"> Descrição </th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var atividadesSecundarias in Model.CnpjData.AtividadesSecundarias)
                         {
                             <tr>
-                                <td>@atividadesSecundarias.Code</td>
-                                <td>@atividadesSecundarias.Text</td>
+                                <td class="table-active"> @atividadesSecundarias.Code </td>
+                                <td class="table-active"> @atividadesSecundarias.Text </td>
                             </tr>
                         }
                     </tbody>
@@ -167,29 +163,29 @@
         {
             <div>
                 <table class="table table-bordered">
-                    <thead>
+                    <thead class="thead-dark">
                         <tr>
-                            <th colspan="2"> Quadro do Societário</th>
+                            <th colspan="5"> Quadro do Societário </th>
                         </tr>
                     </thead>
                     <thead>
                         <tr>
-                            <th>Nome do Sócio</th>
-                            <th>Nome Representante Legal</th>
-                            <th>País de Origem</th>
-                            <th>Qualificação do Sócio</th>
-                            <th>Qualificação do Representante Legal</th>
+                            <th class="table-active"> Nome do Sócio </th>
+                            <th class="table-active"> Nome Representante Legal </th>
+                            <th class="table-active"> País de Origem </th>
+                            <th class="table-active"> Qualificação do Sócio </th>
+                            <th class="table-active"> Qualificação do Representante Legal </th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var qsas in Model.CnpjData.Qsa)
                         {
                             <tr>
-                                <td>@qsas.Nome</td>
-                                <td>@qsas.NomeRepLegal</td>
-                                <td>@qsas.PaisOrigem</td>
-                                <td>@qsas.Qual</td>
-                                <td>@qsas.QualRepLegal</td>
+                                <td class="table-active"> @qsas.Nome </td>
+                                <td class="table-active"> @qsas.NomeRepLegal </td>
+                                <td class="table-active"> @qsas.PaisOrigem </td>
+                                <td class="table-active"> @qsas.Qual </td>
+                                <td class="table-active"> @qsas.QualRepLegal </td>
                             </tr>
                         }
                     </tbody>

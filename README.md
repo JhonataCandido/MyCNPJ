@@ -12,8 +12,7 @@
 ### Tecnologias utilizadas
 
 <li>C#</li>
-<li>ASP .NET</li>
 <li>MVC</li>
 <li>RestSharp</li>
-<li>Nuget - IronPDF</li>
+<li>IronPDF</li>
 <li>SQL Server</li>

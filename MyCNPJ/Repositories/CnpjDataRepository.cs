@@ -32,7 +32,7 @@ namespace MyCNPJ.Repositories
         /// </summary>
         /// <param name="cnpj"></param>
         /// <returns></returns>
-        public async Task<CnpjData> GetCnpjDataDetailsAsync(string cnpj)
+        public async Task<CnpjData> GetCompanyDetailsAsync(string cnpj)
         {
             return await _dataContext.CnpjData
                 .Include(a => a.AtividadePrincipal)

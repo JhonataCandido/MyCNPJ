@@ -21,9 +21,9 @@ namespace MyCNPJ.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> CnpjDetails(string cnpj)
+        public async Task<IActionResult> CompanyDetails(string cnpj)
         {
-            return View(await _companyService.GetCnpjDetails(cnpj));
+            return View(await _companyService.GetCompanyDetails(cnpj));
         }
 
         public async Task<IActionResult> Add(string cnpj)

@@ -40,7 +40,7 @@
                             <td>@listCnpjData.Abertura</td>
                             <td>@listCnpjData.Uf</td>
                             <td>@listCnpjData.Status</td>
-                            <td> @Html.ActionLink("Detalhes", "CnpjDetails", "Company", new { cnpj = @listCnpjData.Cnpj }, new { @class = "btn btn-primary" })</td>
+                            <td> @Html.ActionLink("Detalhes", "CompanyDetails", "Company", new { cnpj = @listCnpjData.Cnpj }, new { @class = "btn btn-primary" })</td>
                         </tr>
                     }
                 }

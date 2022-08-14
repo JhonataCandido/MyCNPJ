@@ -8,8 +8,8 @@ namespace MyCNPJ.Controllers
 {
     public class CompanyController : Controller
     {
-        private ICompanyService _companyService;
-        private ICnpjDataService _cnpjDataService;
+        private readonly ICompanyService _companyService;
+        private readonly ICnpjDataService _cnpjDataService;
         public CompanyController(ICompanyService companyService, ICnpjDataService cnpjDataService)
         {
             _companyService = companyService;
@@ -28,7 +28,7 @@ namespace MyCNPJ.Controllers
 
         public async Task<IActionResult> Add(string cnpj)
         {
-            bool exist = await _companyService.Exist(cnpj);
+            var exist = await _companyService.Exist(cnpj);
             if (!exist)
             {
                 var cnpjData = await _cnpjDataService.GetCnpjAsync(cnpj);
@@ -50,6 +50,5 @@ namespace MyCNPJ.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-
     }
 }

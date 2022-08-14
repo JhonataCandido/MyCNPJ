@@ -1,6 +1,7 @@
 ﻿using MyCNPJ.Entities;
 using MyCNPJ.Utils;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace MyCNPJ.Services
@@ -14,7 +15,8 @@ namespace MyCNPJ.Services
         /// <returns></returns>
         public async Task<string> HtmlGenerateAsync(CnpjData cnpjDataViewModel)
         {
-            string html = @"<html>
+            StringBuilder html = new StringBuilder();
+            html.Append(@"<html>
         <body style='margin-left: 50px;margin-right: 50px; margin-bottom: 50px;font-size: 9px; text-align: center;'>
         <br/>
             <h1>Dados da Empresa</h1>
@@ -104,53 +106,53 @@ namespace MyCNPJ.Services
 
                 <label style='font-size: medium;font-weight: bold;'>Data da Situacão Especial:</label>
                 <label style='font-size: small;'>" + cnpjDataViewModel.DataSituacaoEspecial.ValidField() + @"</label>
-                <hr/>";
+                <hr/>");
 
             if (cnpjDataViewModel.AtividadePrincipal.Any())
             {
-                html += @"<br/><br/>
+                html.Append(@"<br/><br/>
                 <label style='font-size: large;font-weight: bold;'>Atividade Econômicas Primárias</label>
-                <br/><br/>";
+                <br/><br/>");
                 foreach (var atividadePrincipal in cnpjDataViewModel.AtividadePrincipal)
                 {
-                    html += @"
+                    html.Append(@"
                 <label style='font-size: medium;font-weight: bold;'>Codigo:</label>
                 <label style='font-size: small;'>" + atividadePrincipal.Code.ValidField() + @"</label>
                 <br/>
                 <label style='font-size: medium;font-weight: bold;'>Descrição:</label>
                 <label style='font-size: small;'>" + atividadePrincipal.Text.ValidField() + @"</label>
-                <hr/>";
+                <hr/>");
                 }
 
             }
             if (cnpjDataViewModel.AtividadesSecundarias.Any())
             {
-                html += @"
+                html.Append(@"
                 <br/><br/>
                 <label style='font-size: large;font-weight: bold;'>Atividade Econômicas Secundárias</label>
-                <br/><br/>";
+                <br/><br/>");
                 foreach (var atividadesSecundarias in cnpjDataViewModel.AtividadesSecundarias)
                 {
-                    html += @"
+                    html.Append(@"
                 <label style='font-size: medium;font-weight: bold;'>Codigo:</label>
                 <label style='font-size: small;'>" + atividadesSecundarias.Code.ValidField() + @"</label>
                 <br/>
                 <label style='font-size: medium;font-weight: bold;'>Descrição:</label>
                 <label style='font-size: small;'>" + atividadesSecundarias.Text.ValidField() + @"</label>
-                <hr/>";
+                <hr/>");
                 }
             }
 
             if (cnpjDataViewModel.Qsa.Any())
             {
-                html += @"
+                html.Append(@"
                 <br/><br/>
                 <label style='font-size: large;font-weight: bold;'>Quadro Societário</label>
-                <br/><br/>";
+                <br/><br/>");
 
                 foreach (var qsa in cnpjDataViewModel.Qsa)
                 {
-                    html += @"<label style='font-size: medium;font-weight: bold;'>Nome do Sócio:</label>
+                    html.Append(@"<label style='font-size: medium;font-weight: bold;'>Nome do Sócio:</label>
                 <label style='font-size: small;'>" + qsa.Nome.ValidField() + @"</label>
                 <br/>
                 <label style='font-size: medium;font-weight: bold;'>Nome do Representante legal:</label>
@@ -164,14 +166,14 @@ namespace MyCNPJ.Services
                 <br/>
                 <label style='font-size: medium;font-weight: bold;'>Qualificação do Representante Legal:</label>
                 <label style='font-size: small;'>" + qsa.QualRepLegal.ValidField() + @"</label>
-                <hr/>";
+                <hr/>");
                 }
             }
-            html += @"</div>
+            html.Append(@"</div>
                    </body>
-                    </html>";
+                    </html>");
 
-            return await Task.FromResult(html);
+            return await Task.FromResult(html.ToString());
         }
 
         /// <summary>

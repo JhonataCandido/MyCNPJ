@@ -8,7 +8,7 @@ namespace MyCNPJ.Services.Company
 {
     public class CompanyService : ICompanyService
     {
-        private ICnpjDataRepository _cnpjDataRepository;
+        private readonly ICnpjDataRepository _cnpjDataRepository;
         public CompanyService(ICnpjDataRepository cnpjDataRepository)
         {
             _cnpjDataRepository = cnpjDataRepository;

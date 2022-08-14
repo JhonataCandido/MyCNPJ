@@ -11,8 +11,7 @@ namespace MyCNPJ.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        private ICnpjDataService _cnpjDataService;
+        private readonly ICnpjDataService _cnpjDataService;
 
         public HomeController(ILogger<HomeController> logger, ICnpjDataService cnpjDataService)
         {

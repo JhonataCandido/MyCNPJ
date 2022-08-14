@@ -9,12 +9,12 @@ namespace MyCNPJ.Controllers
 {
     public class CnpjDataController : Controller
     {
-        private ICnpjDataService _cnpjDataService;
-        private ICreatePdf _createPdf;
+        private readonly ICnpjDataService _cnpjDataService;
+        private readonly ICreatePdf _createPdf;
 
-        public CnpjDataController(ICnpjDataService CnpjDataService, ICreatePdf createPdf)
+        public CnpjDataController(ICnpjDataService cnpjDataService, ICreatePdf createPdf)
         {
-            _cnpjDataService = CnpjDataService;
+            _cnpjDataService = cnpjDataService;
             _createPdf = createPdf;
         }
 
@@ -23,13 +23,11 @@ namespace MyCNPJ.Controllers
         {
             var cnpjDataViewModel = new CnpjDataViewModel();
 
-            if (TempData["CnpjData"] != null)
-            {
-                var cnpjviewmodel = JsonConvert.DeserializeObject<CnpjDataViewModel>((string)TempData["CnpjData"]);
-                return View(await Task.FromResult(cnpjviewmodel));
-            }
-
-            return View(cnpjDataViewModel);
+            if (TempData["CnpjData"] == null) 
+                return View(cnpjDataViewModel);
+            
+            var cnpjviewmodel = JsonConvert.DeserializeObject<CnpjDataViewModel>((string)TempData["CnpjData"]);
+            return View(await Task.FromResult(cnpjviewmodel));
         }
 
         [HttpPost]
@@ -39,7 +37,7 @@ namespace MyCNPJ.Controllers
 
             if (cnpjClientDetails.Status == "OK")
             {
-                string html = await _createPdf.HtmlGenerateAsync(cnpjClientDetails);
+                var html = await _createPdf.HtmlGenerateAsync(cnpjClientDetails);
                 var pdf = await _createPdf.CreatePdfAsync(html);
 
                 Response.Headers.Add("Content-Length", pdf.ContentLength);

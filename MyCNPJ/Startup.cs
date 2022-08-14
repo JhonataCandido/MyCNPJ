@@ -25,7 +25,7 @@ namespace MyCNPJ
         {
             services.AddControllersWithViews();
 
-            //Injeção de Dependência
+            //Injeï¿½ï¿½o de Dependï¿½ncia
             services.AddTransient<IRestCnpj, RestCnpj>();
             services.AddTransient<ICnpjDataService, CnpjDataService>();
             services.AddScoped<ICreatePdf, CreatePdf>();
@@ -33,9 +33,9 @@ namespace MyCNPJ
             services.AddScoped<ICompanyService, CompanyService>();
             services.AddScoped(a =>
             {
-                var dataConext = new DataContext.DataContext(ConnectionString);
-                dataConext.Database.EnsureCreated();
-                return dataConext;
+                var dataContext = new DataContext.DataContext(ConnectionString);
+                    dataContext.Database.EnsureCreated();
+                return dataContext;
             });
 
         }

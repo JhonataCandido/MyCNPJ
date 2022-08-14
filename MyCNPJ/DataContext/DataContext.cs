@@ -5,7 +5,7 @@ namespace MyCNPJ.DataContext
 {
     public class DataContext : DbContext
     {
-        private string _connectionString;
+        private readonly string _connectionString;
 
         public DataContext() { }
         public DataContext(string connectionString)
@@ -31,6 +31,7 @@ namespace MyCNPJ.DataContext
             modelBuilder.Entity<CnpjData>()
                 .HasKey(a => a.Id);
         }
+
         public virtual DbSet<CnpjData> CnpjData { get; set; }
     }
 }

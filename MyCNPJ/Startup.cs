@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -28,16 +29,11 @@ namespace MyCNPJ
             //Inje��o de Depend�ncia
             services.AddTransient<IRestCnpj, RestCnpj>();
             services.AddTransient<ICnpjDataService, CnpjDataService>();
-            services.AddScoped<ICreatePdf, CreatePdf>();
+            services.AddTransient<ICompanyService, CompanyService>();
             services.AddScoped<ICnpjDataRepository, CnpjDataRepository>();
-            services.AddScoped<ICompanyService, CompanyService>();
-            services.AddScoped(a =>
-            {
-                var dataContext = new DataContext.DataContext(ConnectionString);
-                    dataContext.Database.EnsureCreated();
-                return dataContext;
-            });
-
+            services.AddScoped<ICreatePdf, CreatePdf>();
+            services.AddDbContext<DataContext.DataContext>(options => options.UseSqlServer(ConnectionString));
+       
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,6 +62,11 @@ namespace MyCNPJ
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                scope.ServiceProvider.GetRequiredService<DataContext.DataContext>().Database.EnsureCreated();
+            }
         }
     }
 }

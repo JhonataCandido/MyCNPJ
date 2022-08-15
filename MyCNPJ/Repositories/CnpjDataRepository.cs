@@ -24,7 +24,7 @@ namespace MyCNPJ.Repositories
         {
             return await Task.FromResult(_dataContext.CnpjData
                  .OrderBy(a => a.Nome)
-                 .ToPagedList(page, 8));
+                 .ToPagedList(page, 9));
         }
 
         /// <summary>

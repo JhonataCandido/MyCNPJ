@@ -5,16 +5,9 @@ namespace MyCNPJ.DataContext
 {
     public class DataContext : DbContext
     {
-        private readonly string _connectionString;
-
-        public DataContext() { }
-        public DataContext(string connectionString)
+        public DataContext(DbContextOptions<DataContext> options)
+           : base(options)
         {
-            _connectionString = connectionString;
-        }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(_connectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

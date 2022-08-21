@@ -30,8 +30,10 @@ namespace MyCNPJ.Services
                         cnpjDataModel = JsonConvert.DeserializeObject<CnpjDataViewModel>(response.Content);
 
                     else
+                    {
                         cnpjDataModel.Status = "ERROR";
                         cnpjDataModel.Message = "Falha ao executar a request! Retorno vazio!";
+                    }
                 }
                 else
                 {
